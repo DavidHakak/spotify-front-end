@@ -1,0 +1,23 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.695);
+    position: fixed;
+    z-index: 100;
+}
+
+.innerPopup {
+    height: 68%;
+    width: 56%;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.713);
+}
+
+.iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
