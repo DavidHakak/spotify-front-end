@@ -1,0 +1,67 @@
+.songDetails {
+  width: 100%;
+  height: 30%;
+  padding: 1%;
+  background: #c9184a;
+  border: 1px solid #f4f4f4;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.channelImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.fonts {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.divSongDetails {
+  height: 100%;
+  width: 79%;
+  margin: 4% 2% 0% 0%;
+}
+
+.songName {
+  height: 50%;
+  width: 100%;
+  margin-right: 50px;
+  direction: rtl;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.divSongTimeAndArtist {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.songArtistName {
+  height: 48%;
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.songTime {
+  height: 40%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
