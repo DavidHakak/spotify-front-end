@@ -12,7 +12,11 @@ function UserPlaylistPage() {
       <div className={styles.containerPlaylistList}>
         {playlistList.map((playlist) => {
           return (
-            <div key={playlist.playlistName} className={styles.playlistCard}>
+            <div
+              key={playlist.playlistName}
+              className={styles.playlistCard}
+              id={playlist._id}
+            >
               {playlist.playlistName}
             </div>
           );
