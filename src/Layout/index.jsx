@@ -6,7 +6,6 @@ import MainContainerSearchSongs from "../components/MainContainerSearchSongs";
 import UserPlaylistPage from "../pages/UserPlaylistPage";
 import MainContext from "../context/MainContext";
 import React, { useContext, useEffect } from "react";
-import styles from "./style.module.css";
 
 function Layout() {
   const { popup, onSearch, setSongList } = useContext(MainContext);

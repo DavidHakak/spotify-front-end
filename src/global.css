@@ -7,11 +7,23 @@
 }
 
 :root {
-  --bg-color: linear-gradient(to right, #7b0d1e, #9f2042);
+  --bg-color: rgb(9, 9, 24);
+  --bg-color-width: linear-gradient(
+    to right,
+    rgb(14, 14, 44) 20%,
+    rgb(8, 8, 28) 50%,
+    rgb(9, 9, 24) 80%
+  );
+  --bg-color-height: linear-gradient(
+    to top,
+    rgb(14, 14, 44) 20%,
+    rgb(8, 8, 28) 50%,
+    rgb(9, 9, 24) 80%
+  );
   --bg-secondary-color: #c9184a;
-  --bg-tertiary-color: #ffbea4;
+  --bg-tertiary-color: #353535;
   --text-color: rgb(0, 0, 0);
-  --text-secondary-color: #b6b6b6;
+  --text-secondary-color: #ffffffd2;
   --primary-color: #56c493;
   --input-color: #383838;
   --font-size-label: 13px;

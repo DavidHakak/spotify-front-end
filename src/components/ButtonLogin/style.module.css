@@ -1,9 +1,9 @@
 .buttonLogin {
   width: 150px;
-  margin-top: 30%;
+  margin-top: 10%;
   border-radius: 20px;
-  border: 1px solid #000000;
-  background: #c22851;
+  border: 1px solid var(--bg-tertiary-color);
+  background: var(--bg-color-width);
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;

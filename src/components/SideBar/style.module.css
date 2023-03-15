@@ -1,84 +1,88 @@
 .sideBar {
-  background-image: linear-gradient(180deg, #7b0d1e, #9f2042);
-  width: 20vw;
+  background-image: var(--bg-color);
+  width: 18vw;
   height: 100vh;
-  padding: 11vh;
-  border-left: 0.5px solid black;
+  border-left: 0.5px solid var(--text-secondary-color);
   overflow: scroll;
   position: fixed;
   top: 0;
-  left: 80vw;
+  left: 82vw;
 }
 
-.createNewPlaylist {
-  height: 2.8rem;
-  width: 15vw;
-  margin: 1vw 2vw 0vw 78vw;
-  background: #000000;
-  color: white;
-  font-size: 1.4rem;
-  border-top-right-radius: 190px;
-  border-bottom-left-radius: 190px;
+.createNewPlaylistContainer {
+  background: var(--bg-color);
+  height: 105px;
+  width: 17%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
-  right: 0px;
+  right: 0;
+  top: 97px;
   z-index: 100;
+}
+
+.createNewPlaylist {
+  height: 40px;
+  width: 180px;
+  background: var(--text-secondary-color);
+  color: var(--bg-color);
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .createNewPlaylist:hover {
   cursor: pointer;
-  background: #0000009e;
-  color: white;
+  background: var(--bg-color);
+  border: 0.5px solid var(--text-secondary-color);
+  color: var(--text-secondary-color);
 }
 
 .listPlaylist {
-  min-height: 2rem;
-  width: 17vw;
-  position: absolute;
-  top: 16.5vh;
-  right: 0;
-  z-index: 2;
+  margin-top: 210px;
+  min-height: 3.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .playlist {
-  width: 80%;
-  height: 3.5rem;
-  margin: 15px 0px 10px 20%;
-  padding: 5px;
-  background: #ffbea4;
+  width: 90%;
+  height: 50px;
+  margin: 15px 0px 10px 34px;
+  padding: 5px 25px;
+  background: var(--text-secondary-color);
   border-bottom: 0.5px solid black;
   box-shadow: 0px 10px 20px -2px black;
   border-top-left-radius: 28px;
   border-bottom-left-radius: 28px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
 
-.playlist:hover {
-  background-image: linear-gradient(180deg, #7b0d1e, #9f2042);
+.icon {
+  font-size: 1.7rem;
 }
 
-.playlist:active {
-  background-image: linear-gradient(180deg, #4f0812, #801934);
+.icon:hover {
+  background: black;
+  color: aliceblue;
+  border-radius: 50%;
 }
 
 .formPlaylistName {
   min-height: 2rem;
-  width: 16vw;
+  width: 90%;
+  margin: 230px 1vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  top: 20vh;
-  right: 0;
-  z-index: 2;
 }
 
 .inputPlaylistName,

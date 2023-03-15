@@ -9,16 +9,14 @@ function UserPlaylistPage() {
 
   return (
     <div className={styles.UserPlaylistPage}>
-      <div>
-        <div className={styles.containerPlaylistList}>
-          {playlistList.map((playlist) => {
-            return (
-              <div key={playlist.playlistName} className="playlistCard">
-                {playlist.playlistName}
-              </div>
-            );
-          })}
-        </div>
+      <div className={styles.containerPlaylistList}>
+        {playlistList.map((playlist) => {
+          return (
+            <div key={playlist.playlistName} className={styles.playlistCard}>
+              {playlist.playlistName}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

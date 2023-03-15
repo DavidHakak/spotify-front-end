@@ -1,13 +1,15 @@
 .mainContainerSongs {
-  background: linear-gradient(to right, #7b0d1e, #9f2042);
-  width: 80vw;
+  background: var(--bg-color-height);
+  width: 82.2vw;
   min-height: 100vh;
-  padding: 8% 1% 1% 1%;
+  padding: 150px 40px 40px 40px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-content: center;
   align-items: center;
+  gap: 50px;
+  direction: rtl;
 }
 
 .loader {

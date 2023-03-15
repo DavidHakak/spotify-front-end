@@ -1,0 +1,17 @@
+.MenuAboutTheSong {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  position: relative;
+}
+
+.MenuAboutTheSong :hover {
+  background: var(--text-secondary-color);
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+}

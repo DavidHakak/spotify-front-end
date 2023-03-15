@@ -23,8 +23,8 @@ function Popup() {
           opts={opts}
           videoId={popup}
           onPlay={onPlay}
-          iframeClassName="iframe"
-          className="iframe"
+          iframeClassName={styles.iframe}
+          className={styles.iframe}
         />
       </div>
     </div>
