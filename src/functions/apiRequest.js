@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:9999/api/";
+axios.defaults.baseURL = "http://localhost:9990/api/";
 // axios.defaults.baseURL = "https://deployment.app"
 
 export const setToken = async (token) => {
