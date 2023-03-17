@@ -17,15 +17,16 @@ function SideBar() {
 
   useEffect(() => {
     apiCalls("get", "/playlist/names").then((response) => {
+      console.log(response.data);
       setPlaylistList(response.data);
     });
   }, []);
 
   async function removePlaylist(e) {
+    e.stopPropagation();
     const data = { playlist_Id: e.target.id, userId: user._id };
-    apiCalls("post", "/playlist/deleteplaylist", data).then((response) => {
+    apiCalls("delete", "/playlist/deleteplaylist", data).then((response) => {
       if (response.status === 200) {
-        console.log(response.data);
         setPlaylistList(response.data);
       }
     });
@@ -49,8 +50,8 @@ function SideBar() {
     setVisibleList(true);
   }
 
-  const handlePlaylistCliched = () => {
-    navigate("/showUserPlaylist");
+  const handlePlaylistCliched = (playlistId) => {
+    navigate(`/showUserPlaylist/${playlistId}`);
   };
 
   return (
@@ -79,7 +80,7 @@ function SideBar() {
                 className={styles.playlist}
                 id={playlist._id}
                 key={playlist._id}
-                onClick={handlePlaylistCliched}
+                onClick={() => handlePlaylistCliched(playlist._id)}
               >
                 {playlist.playlistName}
                 <TiDeleteOutline

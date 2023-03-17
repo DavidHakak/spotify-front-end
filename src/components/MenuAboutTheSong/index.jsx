@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import { useContext } from "react";
 import { FiMoreVertical } from "react-icons/fi";
 import MainContext from "../../context/MainContext";
+import apiCalls from "../../functions/apiRequest";
 
 function MenuAboutTheSong({
   showMenuToAddSong,
@@ -12,10 +13,11 @@ function MenuAboutTheSong({
   const { playlistList } = useContext(MainContext);
 
   const handleSelect = (e) => {
-    const selectedOption = e.target.selectedOptions[0];
-    console.log(selectedOption.getAttribute("_id"));
-    console.log(songInfo);
     handleCloseAll();
+    const selectedOption = e.target.selectedOptions[0].getAttribute("id");
+    const data = { songInfo: { ...songInfo }, playlist_id: selectedOption };
+    console.log("data ", data);
+    apiCalls("put", "/playlist/createSongInPlaylist", data);
   };
 
   return (
@@ -36,7 +38,7 @@ function MenuAboutTheSong({
               <option
                 key={playlist.playlistName}
                 value={playlist.playlistName}
-                _id={playlist._id}
+                id={playlist._id}
               >
                 {playlist.playlistName}
               </option>

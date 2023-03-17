@@ -31,7 +31,7 @@ td {
 }
 
 .table > tr:hover {
-  background: var(--bg-color-width);
+  background: var(--bg-secondary-color);
 }
 
 .songNumAndIng {
@@ -52,11 +52,10 @@ td {
 
 .artistName,
 .songTime {
-  color: rgb(111, 111, 111);
+  color: rgb(130, 130, 130);
 }
 
-.deleteIcon,
-.iconPlay {
+.icon {
   font-size: 20px;
   cursor: pointer;
 }

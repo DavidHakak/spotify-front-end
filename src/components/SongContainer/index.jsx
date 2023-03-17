@@ -41,6 +41,7 @@ function SongContainer({ song, setPopup }) {
             imgUrl: song.thumbnail.url,
             songName: song.title,
             artist: song.channel.name,
+            time: song.duration_formatted,
           }}
         />
       </div>

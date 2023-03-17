@@ -38,7 +38,10 @@ function Layout() {
         <Route path="/" element={<MainContainerSearchSongs />} />
         <Route path="/SearchSongs" element={<MainContainerSearchSongs />} />
         <Route path="/userPlaylist" element={<UserPlaylistPage />} />
-        <Route path="/showUserPlaylist" element={<ShowUserPlaylist />} />
+        <Route
+          path="/showUserPlaylist/:playlistId"
+          element={<ShowUserPlaylist />}
+        />
       </Routes>
       <SideBar />
       {popup && <Popup />}

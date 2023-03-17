@@ -1,25 +1,47 @@
 import React, { useContext, useEffect, useState } from "react";
 import MainContext from "../../context/MainContext";
+import apiCalls from "../../functions/apiRequest";
 import styles from "./style.module.css";
 
 import { TiDeleteOutline } from "react-icons/ti";
-import { BsPlayCircle } from "react-icons/bs";
+import { BsPlayCircle, BsClockHistory } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 
 function ShowUserPlaylist() {
-  const { songList, setIsSearch } = useContext(MainContext);
+  const { setIsSearch } = useContext(MainContext);
   setIsSearch(false);
+  const { playlistId } = useParams();
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [songList, setSongList] = useState([]);
 
   useEffect(() => {
-    console.log(songList);
-  }, []);
+    apiCalls("get", `/playlist/readplaylist?playlistid=${playlistId}`).then(
+      (response) => {
+        if (response.status === 200) {
+          console.log("res", response.data);
+          setSongList(response.data);
+        }
+      }
+    );
+  }, [playlistId]);
 
   const handleMouseOver = (index) => {
     setHoveredIndex(index);
   };
 
-  const handleMouseLeave = (index) => {
+  const handleMouseLeave = () => {
     setHoveredIndex(null);
+  };
+
+  const handleDeleteSong = (songId) => {
+    const data = { songId, playlistId };
+    apiCalls("put", "/playlist/deleteSongFromPlaylist", data).then(
+      (response) => {
+        if (response.status === 200) {
+          setSongList(response.data);
+        }
+      }
+    );
   };
 
   return (
@@ -29,15 +51,18 @@ function ShowUserPlaylist() {
           {/* <thead className={styles.thead}> */}
           <th>{""} </th>
           <th>Song Name</th>
-          <th>Artist Name</th>
-          <th>Time</th>
+          <th>Channel Name</th>
+          <th>
+            <BsClockHistory className={styles.icon} />
+          </th>
           <th>{""} </th>
           {/* </thead> */}
         </tr>
         {songList.map((song, index) => {
+          console.log(song);
           return (
             <tr
-              key={song.title}
+              key={song.id}
               className={styles.songContainer}
               id={song.id}
               onMouseOver={() => handleMouseOver(index)}
@@ -46,21 +71,25 @@ function ShowUserPlaylist() {
               {/* <tbody className={styles.tbody}> */}
               <td className={styles.songNumAndIng}>
                 {hoveredIndex === index ? (
-                  <BsPlayCircle className={styles.iconPlay} />
+                  <BsPlayCircle className={styles.icon} />
                 ) : (
                   index + 1
                 )}
                 <img
                   className={styles.songImg}
-                  src={song.thumbnail.url}
-                  alt={song.channel.name}
+                  src={song.imgUrl}
+                  alt={song.songName}
                 />
               </td>
-              <td className={styles.songName}>{song.title}</td>
-              <td className={styles.artistName}>{song.channel.name}</td>
-              <td className={styles.songTime}>{song.duration_formatted}</td>
-              <td className={styles.deleteIcon}>
-                {hoveredIndex === index ? <TiDeleteOutline /> : ""}
+              <td className={styles.songName}>{song.songName}</td>
+              <td className={styles.artistName}>{song.artist}</td>
+              <td className={styles.songTime}>{song.time}</td>
+              <td className={styles.icon}>
+                {hoveredIndex === index ? (
+                  <TiDeleteOutline onClick={() => handleDeleteSong(song.id)} />
+                ) : (
+                  ""
+                )}
               </td>
               {/* </tbody> */}
             </tr>
