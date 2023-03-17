@@ -8,15 +8,15 @@ import { useNavigate } from "react-router-dom";
 
 function App() {
   const nav = useNavigate();
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(!false);
 
   useEffect(() => {
     const startApp = async () => {
       await setToken(localStorage.token);
-      apiCalls("get", "user/").then((res) => {
+      apiCalls("get", "http://localhost:9999/api/user/").then((res) => {
         if (res.status === 200) {
           setUser(res.data);
-          nav("/SearchSongs");
+          nav("/myapp");
         }
       });
     };

@@ -6,7 +6,7 @@ import MainContainerSearchSongs from "../components/MainContainerSearchSongs";
 import UserPlaylistPage from "../pages/UserPlaylistPage";
 import MainContext from "../context/MainContext";
 import React, { useContext, useEffect } from "react";
-import ShowUserPlaylist from "../pages/ShowUserPlaylist";
+import styles from "./style.module.css";
 
 function Layout() {
   const { popup, onSearch, setSongList } = useContext(MainContext);
@@ -38,10 +38,6 @@ function Layout() {
         <Route path="/" element={<MainContainerSearchSongs />} />
         <Route path="/SearchSongs" element={<MainContainerSearchSongs />} />
         <Route path="/userPlaylist" element={<UserPlaylistPage />} />
-        <Route
-          path="/showUserPlaylist/:playlistId"
-          element={<ShowUserPlaylist />}
-        />
       </Routes>
       <SideBar />
       {popup && <Popup />}

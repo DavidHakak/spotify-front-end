@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import language from "../../functions/language";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
-import userContext from "../../context/UserContext";
 
 // creator: david hakak
 // color: _______________
@@ -31,15 +30,16 @@ function LoginAndRegisterPage({ setUser }) {
       email: userEmailLoginInput.current.value,
     };
 
-    apiCalls("post", "/user/login", data).then((res) => {
-      if (res.status === 200) {
-        setToken(res.data.token);
-        setUser(true);
-        localStorage.token = res.data.token;
-        nav("/SearchSongs");
-        userContext = {};
+    apiCalls("post", "http://localhost:9999/api/user/login", data).then(
+      (res) => {
+        if (res.status === 200) {
+          setToken(res.data.token);
+          setUser(true);
+          localStorage.token = res.data.token;
+          nav("/myapp");
+        }
       }
-    });
+    );
   }
 
   function handleSubmitRegister(e) {

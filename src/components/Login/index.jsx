@@ -35,7 +35,7 @@ function Login({
       <InputLogin
         type={"password"}
         required={"required"}
-        //minLength="4"
+        minLength="4"
         inputRef={userPasswordLoginInput}
         placeholder={"Password"}
       />

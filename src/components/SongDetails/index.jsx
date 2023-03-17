@@ -5,15 +5,10 @@ function SongDetails({ name, artist, time, channelImg }) {
   return (
     <div className={styles.songDetails}>
       <div className={styles.divSongDetails}>
-        <h3 className={`${styles.songName} ${styles.fonts}`} dir="auto">
-          {name}
-        </h3>
+        <h3 className={`${styles.songName} ${styles.fonts}`}>{name}</h3>
         <div className={styles.divSongTimeAndArtist}>
           <div className={`${styles.songTime} ${styles.fonts}`}>{time}</div>
-          <div
-            className={`${styles.songArtistName} ${styles.fonts}`}
-            dir="auto"
-          >
+          <div className={`${styles.songArtistName} ${styles.fonts}`}>
             {artist}
           </div>
         </div>

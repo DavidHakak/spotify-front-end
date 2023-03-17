@@ -1,27 +1,23 @@
 .searchContainer {
-  background: var(--text-secondary-color);
-  color: var(--text-color);
-  height: 45px;
-  width: 500px;
-  border-radius: 20px;
+  background: #ffbea4;
+  color: #000000;
+  height: 57px;
+  width: 390px;
+  border-radius: 30px;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.617);
 }
 
 .inputSearch {
-  width: 90%;
+  width: 100%;
   height: 95%;
-  color: var(--text-color);
   background-color: transparent;
   background: none;
   border: none;
   outline: none;
   font-size: 1rem;
-}
-
-.searchIcon {
-  cursor: pointer;
 }

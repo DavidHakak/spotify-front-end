@@ -13,7 +13,6 @@ function InputLogin({
 }) {
   return (
     <input
-      dir="auto"
       className={styles.inputLogin}
       type={type}
       placeholder={placeholder}
