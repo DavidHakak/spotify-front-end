@@ -39,7 +39,7 @@ function Login({
         inputRef={userPasswordLoginInput}
         placeholder={"Password"}
       />
-      <a href="#">Forgot your password?</a>
+      <a href="/">Forgot your password?</a>
       <ButtonLogin>Sign In</ButtonLogin>
     </form>
   );

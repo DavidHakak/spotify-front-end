@@ -1,6 +1,7 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:9990/api/";
-// axios.defaults.baseURL = "https://deployment.app"
+
+// axios.defaults.baseURL = "http://localhost:9900/api/";
+axios.defaults.baseURL = "https://my-youtube-app-server.onrender.com/api/";
 
 export const setToken = async (token) => {
   axios.defaults.headers.common.Authorization = token
