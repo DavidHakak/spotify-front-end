@@ -15,6 +15,7 @@ function MenuAboutTheSong({
   const handleSelect = (e) => {
     handleCloseAll();
     const selectedOption = e.target.selectedOptions[0].getAttribute("id");
+    console.log(selectedOption);
     const data = { songInfo: { ...songInfo }, playlist_id: selectedOption };
     console.log("data ", data);
     apiCalls("put", "/playlist/createSongInPlaylist", data);
@@ -34,6 +35,7 @@ function MenuAboutTheSong({
             id="playlistList"
             onChange={(e) => handleSelect(e)}
           >
+            <option>Choose Playlist</option>
             {playlistList.map((playlist) => (
               <option
                 key={playlist.playlistName}
