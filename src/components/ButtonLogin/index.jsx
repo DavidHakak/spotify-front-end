@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./style.module.css";
 
 function ButtonLogin({ children, type, width, func, style, ...otherProps }) {

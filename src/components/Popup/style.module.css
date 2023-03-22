@@ -4,15 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.695);
+    background: rgba(0, 0, 0, 0.797);
     position: fixed;
     top: 0;
     z-index: 100;
 }
 
 .innerPopup {
-    height: 68%;
-    width: 56%;
+    height: 60%;
+    width: 60%;
     border-radius: 30px;
 }
 

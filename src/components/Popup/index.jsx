@@ -20,6 +20,7 @@ function Popup() {
     <div className={styles.popup} onClick={() => setPopup(false)}>
       <div className={styles.innerPopup} onClick={(e) => e.stopPropagation()}>
         <YouTube
+          key={popup}
           opts={opts}
           videoId={popup}
           onPlay={onPlay}

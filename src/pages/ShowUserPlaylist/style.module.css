@@ -1,37 +1,50 @@
-.tableContainer {
+.tablePage {
+  height: 100vh;
+  width: var(--main-width);
   padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.playlistPlayerContainer {
   width: 82vw;
 }
 
-.table {
-  border-collapse: collapse;
-  width: 100%;
+.tableContainer {
+  margin-top: 55px;
+  position: relative;
+  overflow: scroll;
 }
+
+.table {
+  width: 100%;
+  color: var(--text-secondary-color);
+  border-collapse: collapse;
+  text-align: left;
+}
+
 
 .table th {
-  background: #ffffff;
-  color: black;
+  background: #dcdcdc;
+  color: rgb(0, 0, 0);
   font-size: medium;
   font-weight: 900;
-  position: sticky;
-  top: 100px;
-}
-
-.table,
-.tbody,
-.thead .table.tbody > tr,
-.table.thead > tr {
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: left;
-  color: var(--text-secondary-color);
+  position: sticky;
+  top: 0px;
 }
 
-th,
-td {
-  padding: 12px;
-}
-
-.table > tr:hover {
+.table tr:hover {
   background: var(--bg-secondary-color);
+
+}
+
+th,td {
+  padding: 12px;
 }
 
 .songNumAndIng {
@@ -43,16 +56,7 @@ td {
 
 .songImg {
   height: 45px;
-  width: 45px;
-}
-
-.songName {
-  font-weight: bold;
-}
-
-.artistName,
-.songTime {
-  color: rgb(130, 130, 130);
+  width: 75px;
 }
 
 .icon {

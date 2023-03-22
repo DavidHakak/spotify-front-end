@@ -1,3 +1,4 @@
+import React from "react";
 import ButtonLogin from "../ButtonLogin";
 import InputLogin from "../InputLogin";
 import styles from "./style.module.css";
@@ -7,7 +8,7 @@ function Register({
   userEmailInput,
   userPasswordInput,
   userFirstNameInput,
-  userLastNamelInput,
+  userLastNameInput,
   userPhoneNumberInput,
 }) {
   return (
@@ -45,7 +46,7 @@ function Register({
         required={"required"}
         pattern={"[a-zA-Z]*"}
         minLength="2"
-        inputRef={userLastNamelInput}
+        inputRef={userLastNameInput}
         placeholder={"Last name"}
       />
       <InputLogin

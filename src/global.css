@@ -24,11 +24,12 @@
   --bg-tertiary-color: #353535;
   --text-color: rgb(0, 0, 0);
   --text-secondary-color: #ffffffd2;
-  --primary-color: #56c493;
   --input-color: #383838;
   --font-size-label: 13px;
   --font-size-text: 11px;
   --border-radius: 4px;
+  --side-bar-width: 16vw;
+  --main-width: 84vw;
 }
 
 body {

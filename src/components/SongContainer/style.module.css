@@ -1,6 +1,6 @@
 .songContainer {
-  width: 290px;
-  height: 230px;
+  width: 340px;
+  height: 280px;
   direction: ltr;
   border-radius: 15px;
   box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.506);
@@ -9,7 +9,7 @@
 }
 
 .songContainer:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 .songImg {

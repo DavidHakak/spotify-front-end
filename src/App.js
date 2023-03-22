@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 function App() {
   const nav = useNavigate();
   const [user, setUser] = useState(false);
+  console.log(process.env.REACT_APP_API_URL);
   useEffect(() => {
     const startApp = async () => {
       await setToken(localStorage.token);
