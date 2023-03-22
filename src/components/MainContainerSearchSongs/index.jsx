@@ -1,11 +1,16 @@
 import styles from "./style.module.css";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import MainContext from "../../context/MainContext";
 import SongContainer from "../SongContainer";
 
 function MainContainerSongs() {
-  const { songList, setPopup, setIsSearch } = useContext(MainContext);
-  setIsSearch(true);
+  const { songList, setPopup, isSearch, setIsSearch } = useContext(MainContext);
+
+  useEffect(() => {
+    if (!isSearch) {
+      setIsSearch(true);
+    }
+  }, []);
   return (
     <div className={styles.mainContainerSongs}>
       {songList ? (

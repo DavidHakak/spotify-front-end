@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import MainContext from "../../context/MainContext";
 import styles from "./style.module.css";
 
 function UserPlaylistPage() {
   const { playlistList, setIsSearch } = useContext(MainContext);
-
-  setIsSearch(false);
+  useEffect(() => {
+    setIsSearch(false);
+  }, []);
 
   return (
     <div className={styles.UserPlaylistPage}>

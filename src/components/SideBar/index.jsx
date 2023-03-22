@@ -1,16 +1,14 @@
 import styles from "./style.module.css";
-import axios from "axios";
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import MainContext from "../../context/MainContext";
 import InputLogin from "../../components/InputLogin";
 import ButtonLogin from "../ButtonLogin";
 import apiCalls from "../../functions/apiRequest";
-import UserContext from "../../context/UserContext";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+
 function SideBar() {
-  const { user } = useContext(UserContext);
   const { playlistList, setPlaylistList } = useContext(MainContext);
   const [visibleList, setVisibleList] = useState(true);
   const navigate = useNavigate();
@@ -22,12 +20,13 @@ function SideBar() {
     });
   }, []);
 
-  async function removePlaylist(e) {
+  async function removePlaylist(e, id) {
     e.stopPropagation();
-    const data = { playlist_Id: e.target.id, userId: user._id };
+    const data = { playlist_id: id };
     apiCalls("delete", "/playlist/deleteplaylist", data).then((response) => {
       if (response.status === 200) {
         setPlaylistList(response.data);
+        navigate("/SearchSongs");
       }
     });
   }
@@ -36,7 +35,6 @@ function SideBar() {
     e.preventDefault();
     if (e.target[0].value.trim() !== "") {
       const data = {
-        userId: user._id,
         playlistName: e.target[0].value,
       };
 
@@ -74,23 +72,23 @@ function SideBar() {
       </div>
       {visibleList ? (
         <div className={styles.listPlaylist}>
-          {playlistList.map((playlist) => {
-            return (
-              <div
-                className={styles.playlist}
-                id={playlist._id}
-                key={playlist._id}
-                onClick={() => handlePlaylistCliched(playlist._id)}
-              >
-                {playlist.playlistName}
-                <TiDeleteOutline
+          {playlistList &&
+            playlistList.map((playlist) => {
+              return (
+                <div
+                  className={styles.playlist}
                   id={playlist._id}
-                  className={styles.icon}
-                  onClick={(e) => removePlaylist(e)}
-                />
-              </div>
-            );
-          })}
+                  key={playlist._id}
+                  onClick={() => handlePlaylistCliched(playlist._id)}
+                >
+                  {playlist.playlistName}
+                  <TiDeleteOutline
+                    className={styles.icon}
+                    onClick={(e) => removePlaylist(e, playlist._id)}
+                  />
+                </div>
+              );
+            })}
         </div>
       ) : (
         <form

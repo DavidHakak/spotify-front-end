@@ -58,7 +58,7 @@ function LoginAndRegisterPage({ setUser }) {
         setToken(res.data.token);
         setUser(true);
         localStorage.token = res.data.token;
-        nav("/myapp");
+        nav("/SearchSongs");
       }
     });
   }

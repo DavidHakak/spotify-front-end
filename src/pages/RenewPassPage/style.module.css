@@ -1,50 +1,56 @@
-.formLoginContainer {
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-.formLogin {
-    margin: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .header{
-      margin-top: 5px;
-      border-top: 0.5px solid rgba(128, 128, 128, 0.152) ;
-      border-bottom: 0.5px solid rgba(128, 128, 128, 0.214);
-  }
-  
-  .logo{
-      width: 383px;
-      padding: 8px;
-      font-size: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-  }
-  
-  .formOptions {
-    width: 328px;
-    font-size: 14px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .paragraphTitle{
-      margin-bottom: 15px;
-      font-size: 28px;
-      font-weight: bold;
-  }
-  .paragraph{
-      font-size: 14px;
-      margin-bottom: 35px;
-  }
-  
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  background: #ffffff;
+  color: black;
+  font-size: medium;
+  font-weight: 900;
+  position: sticky;
+  top: 100px;
+}
+
+.table,
+.tbody,
+.thead .table.tbody > tr,
+.table.thead > tr {
+  text-align: left;
+  color: var(--text-secondary-color);
+}
+
+th,
+td {
+  padding: 12px;
+}
+
+.table > tr:hover {
+  background: var(--bg-secondary-color);
+}
+
+.songNumAndIng {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.songImg {
+  height: 45px;
+  width: 45px;
+}
+
+.songName {
+  font-weight: bold;
+}
+
+.artistName,
+.songTime {
+  color: rgb(130, 130, 130);
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -6,15 +6,19 @@ import styles from "./style.module.css";
 import { TiDeleteOutline } from "react-icons/ti";
 import { BsPlayCircle, BsClockHistory } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+import PlaylistPlayer from "../../components/PlaylistPlayer";
 
 function ShowUserPlaylist() {
-  const { setIsSearch } = useContext(MainContext);
-  setIsSearch(false);
+  const { isSearch, setIsSearch } = useContext(MainContext);
   const { playlistId } = useParams();
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [songList, setSongList] = useState([]);
+  const [hoveredId, setHoveredId] = useState(null);
+  const [songsList, setSongList] = useState([]);
+  const [showPlayer, setShowPlayer] = useState(false);
+  const [songIndex, setSongIndex] = useState(null);
 
   useEffect(() => {
+    showPlayer && setShowPlayer(null);
+    isSearch && setIsSearch(false);
     apiCalls("get", `/playlist/readplaylist?playlistid=${playlistId}`).then(
       (response) => {
         if (response.status === 200) {
@@ -26,11 +30,11 @@ function ShowUserPlaylist() {
   }, [playlistId]);
 
   const handleMouseOver = (index) => {
-    setHoveredIndex(index);
+    setHoveredId(index);
   };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(null);
+    setHoveredId(null);
   };
 
   const handleDeleteSong = (songId) => {
@@ -44,58 +48,78 @@ function ShowUserPlaylist() {
     );
   };
 
+  const handleShowPlayer = (mode, index = null) => {
+    setShowPlayer(mode);
+    setSongIndex(index);
+  };
+
   return (
-    <div className={styles.tableContainer}>
-      <table className={styles.table}>
-        <tr className={styles.titles}>
-          {/* <thead className={styles.thead}> */}
-          <th>{""} </th>
-          <th>Song Name</th>
-          <th>Channel Name</th>
-          <th>
-            <BsClockHistory className={styles.icon} />
-          </th>
-          <th>{""} </th>
-          {/* </thead> */}
-        </tr>
-        {songList.map((song, index) => {
-          console.log(song);
-          return (
-            <tr
-              key={song.id}
-              className={styles.songContainer}
-              id={song.id}
-              onMouseOver={() => handleMouseOver(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* <tbody className={styles.tbody}> */}
-              <td className={styles.songNumAndIng}>
-                {hoveredIndex === index ? (
-                  <BsPlayCircle className={styles.icon} />
-                ) : (
-                  index + 1
-                )}
-                <img
-                  className={styles.songImg}
-                  src={song.imgUrl}
-                  alt={song.songName}
-                />
-              </td>
-              <td className={styles.songName}>{song.songName}</td>
-              <td className={styles.artistName}>{song.artist}</td>
-              <td className={styles.songTime}>{song.time}</td>
-              <td className={styles.icon}>
-                {hoveredIndex === index ? (
-                  <TiDeleteOutline onClick={() => handleDeleteSong(song.id)} />
-                ) : (
-                  ""
-                )}
-              </td>
-              {/* </tbody> */}
+    <div className={styles.tablePage}>
+      <div className={styles.playlistPlayer}>
+        {showPlayer && (
+          <PlaylistPlayer
+            handleShowPlayer={handleShowPlayer}
+            songsList={songsList}
+            songIndex={songIndex}
+            setSongIndex={setSongIndex}
+          />
+        )}
+      </div>
+      <div className={styles.tableContainer}>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr className={styles.titles}>
+              <th>{""} </th>
+              <th>Song Name</th>
+              <th>Channel Name</th>
+              <th>
+                <BsClockHistory className={styles.icon} />
+              </th>
+              <th>{""} </th>
             </tr>
-          );
-        })}
-      </table>
+          </thead>
+          {songsList.map((song, index) => {
+            return (
+              <tbody className={styles.tbody}>
+                <tr
+                  key={song.id}
+                  className={styles.songContainer}
+                  id={song.id}
+                  onMouseOver={() => handleMouseOver(song.id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <td className={styles.songNumAndIng}>
+                    {hoveredId === song.id ? (
+                      <BsPlayCircle
+                        className={`display-on-hover ${styles.icon}`}
+                        onClick={() => handleShowPlayer(true, index)}
+                      />
+                    ) : (
+                      index + 1
+                    )}
+                    <img
+                      className={styles.songImg}
+                      src={song.imgUrl}
+                      alt={song.songName}
+                    />
+                  </td>
+                  <td className={styles.songName}>{song.songName}</td>
+                  <td className={styles.artistName}>{song.artist}</td>
+                  <td className={styles.songTime}>{song.time}</td>
+                  <td className={styles.icon}>
+                    {hoveredId === song.id && (
+                      <TiDeleteOutline
+                        className="display-on-hover"
+                        onClick={() => handleDeleteSong(song.id)}
+                      />
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+      </div>
     </div>
   );
 }

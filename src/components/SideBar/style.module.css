@@ -1,35 +1,33 @@
 .sideBar {
   background-image: var(--bg-color);
-  width: 18vw;
+  width: var(--side-bar-width);
   height: 100vh;
   border-left: 0.5px solid var(--text-secondary-color);
   overflow: scroll;
   position: fixed;
   top: 0;
-  left: 82vw;
+  left: var(--main-width);
 }
 
 .createNewPlaylistContainer {
-  background: var(--bg-color);
-  height: 105px;
-  width: 17%;
+  height: 145px;
+  width: var(--side-bar-width);
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   right: 0;
-  top: 130px;
+  top: 100px;
   z-index: 100;
 }
 
 .createNewPlaylist {
-  height: 40px;
-  width: 180px;
+  height: 37%;
+  width: 95%;
   background: var(--text-secondary-color);
   color: var(--bg-color);
   font-size: 1rem;
   border: none;
-  border-radius: 5px;
 }
 
 .createNewPlaylist:hover {
@@ -49,9 +47,9 @@
 }
 
 .playlist {
-  width: 90%;
+  width: 93%;
   height: 50px;
-  margin: 15px 0px 10px 34px;
+  margin: 10px 0px 10px 20px;
   padding: 5px 25px;
   background: var(--text-secondary-color);
   border-bottom: 0.5px solid black;
@@ -62,10 +60,17 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+}
+
+.playlist:hover{
+  background: var(--bg-color);
+  border: 0.5px solid var(--text-secondary-color);
+  color: var(--text-secondary-color);
   cursor: pointer;
 }
 
 .icon {
+  color: gray;
   font-size: 1.7rem;
 }
 
