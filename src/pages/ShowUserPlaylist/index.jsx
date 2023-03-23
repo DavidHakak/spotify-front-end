@@ -19,7 +19,7 @@ function ShowUserPlaylist() {
   useEffect(() => {
     showPlayer && setShowPlayer(null);
     isSearch && setIsSearch(false);
-    apiCalls("get", `/playlist/readplaylist?playlistid=${playlistId}`).then(
+    apiCalls("get", `/playlist/readplaylist?playlistId=${playlistId}`).then(
       (response) => {
         if (response.status === 200) {
           console.log("res", response.data);
@@ -84,12 +84,12 @@ function ShowUserPlaylist() {
                 <tr
                   key={song.id}
                   className={styles.songContainer}
-                  id={song.id}
-                  onMouseOver={() => handleMouseOver(song.id)}
+                  id={song._id}
+                  onMouseOver={() => handleMouseOver(song._id)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <td className={styles.songNumAndIng}>
-                    {hoveredId === song.id ? (
+                    {hoveredId === song._id ? (
                       <BsPlayCircle
                         className={`display-on-hover ${styles.icon}`}
                         onClick={() => handleShowPlayer(true, index)}
@@ -104,13 +104,13 @@ function ShowUserPlaylist() {
                     />
                   </td>
                   <td className={styles.songName}>{song.songName}</td>
-                  <td className={styles.artistName}>{song.artist}</td>
+                  <td className={styles.channelName}>{song.channelName}</td>
                   <td className={styles.songTime}>{song.time}</td>
                   <td className={styles.icon}>
-                    {hoveredId === song.id && (
+                    {hoveredId === song._id && (
                       <TiDeleteOutline
                         className="display-on-hover"
-                        onClick={() => handleDeleteSong(song.id)}
+                        onClick={() => handleDeleteSong(song._id)}
                       />
                     )}
                   </td>

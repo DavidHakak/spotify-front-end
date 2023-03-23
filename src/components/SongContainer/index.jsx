@@ -37,10 +37,10 @@ function SongContainer({ song, setPopup }) {
           handleOpenMenu={handleOpenMenu}
           handleCloseAll={handleCloseAll}
           songInfo={{
-            id: song.id,
+            youtubeId: song.id,
             imgUrl: song.thumbnail.url,
             songName: song.title,
-            artist: song.channel.name,
+            channelName: song.channel.name,
             time: song.duration_formatted,
           }}
         />
