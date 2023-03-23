@@ -16,7 +16,7 @@ function MenuAboutTheSong({
     handleCloseAll();
     const selectedOption = e.target.selectedOptions[0].getAttribute("id");
     console.log(selectedOption);
-    const data = { songInfo: { ...songInfo }, playlist_id: selectedOption };
+    const data = { ...songInfo, playlist_id: selectedOption };
     console.log("data ", data);
     apiCalls("put", "/playlist/createSongInPlaylist", data);
   };

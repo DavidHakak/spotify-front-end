@@ -16,22 +16,10 @@ function PlaylistPlayer({
   songIndex,
   setSongIndex,
 }) {
-  useEffect(() => {
-    console.log(songIndex, songsList.length);
-    if (songIndex >= 0 && songIndex < songsList.length - 1) {
-      console.log(songsList[songIndex].id);
-      setSongToPlay(songsList[songIndex].id);
-    }
-  }, [songIndex]);
-
   const [showMovie, setShowMovie] = useState(false);
   const [replay, setReplay] = useState(false);
   const [songToPlay, setSongToPlay] = useState(null);
   const [play, setPlay] = useState(true);
-
-  const handleShowMovie = () => {
-    setShowMovie(!showMovie);
-  };
 
   const handleReplay = () => {
     setReplay(!replay);
@@ -41,14 +29,22 @@ function PlaylistPlayer({
     setPlay(!play);
   };
 
+  const handleShowMovie = () => {
+    setShowMovie(!showMovie);
+  };
+
   const handleNextSong = () => {
-    if (songIndex && songIndex >= 0 && songIndex < songsList.length - 1) {
+    if (songIndex >= 0 && songIndex < songsList.length - 1) {
       setSongIndex(songIndex + 1);
+    } else if (replay && songIndex === songsList.length - 1) {
+      setSongIndex(0);
     }
   };
 
   const handleReturnSong = () => {
-    songIndex && setSongIndex(songIndex - 1);
+    if (songIndex > 0 && songIndex < songsList.length - 1) {
+      setSongIndex((songIndex) => songIndex - 1);
+    }
   };
 
   const opts: YouTubeProps["opts"] = {
@@ -56,6 +52,12 @@ function PlaylistPlayer({
       autoplay: 1,
     },
   };
+
+  useEffect(() => {
+    if (songIndex >= 0 && songIndex <= songsList.length - 1) {
+      setSongToPlay(songsList[songIndex].youtubeId);
+    }
+  }, [songIndex]);
 
   return (
     <div className={styles.playlistPlayer}>
@@ -68,6 +70,7 @@ function PlaylistPlayer({
           key={songToPlay}
           opts={opts}
           videoId={songToPlay}
+          onEnd={handleNextSong}
           iframeClassName={styles.iframe}
           className={styles.iframe}
         />
@@ -103,7 +106,7 @@ function PlaylistPlayer({
           </div>
           <div className={styles.icon}>
             <MdOutlineReplay
-              className={replay ? styles.replay : ""}
+              className={replay ? "" : styles.replay}
               onClick={handleReplay}
             />
           </div>
