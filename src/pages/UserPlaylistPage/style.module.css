@@ -1,6 +1,6 @@
 .UserPlaylistPage {
   background: var(--bg-color-height);
-  max-width: 82vw;
+  max-width: var(--main-width);
   min-height: 100vh;
   padding: 3.7vw 0vw 0vw 0vw;
   display: flex;

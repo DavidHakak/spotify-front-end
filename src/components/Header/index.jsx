@@ -1,19 +1,33 @@
 import styles from "./style.module.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Search from "../Search";
 import { useContext } from "react";
 import MainContext from "../../context/MainContext";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 
 function Header() {
   const navigate = useNavigate();
-  const { isSearch } = useContext(MainContext);
+
+  const { isSearch, setSideBarUserMenu } = useContext(MainContext);
+  const { user, photoData, setPhotoData } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(photoData);
+    if (!photoData) {
+      const image = Object.values(user)[1];
+      setPhotoData(image);
+    }
+  }, []);
+
   return (
     <div className={styles.header}>
       <div
         className={styles.logo}
         onClick={() => {
-          navigate("/SearchSongs");
+          if (!window.location.href.includes("SearchSongs")) {
+            navigate("/SearchSongs");
+          }
         }}
       >
         <img src="/image/logo.png" alt="logo" />
@@ -22,11 +36,17 @@ function Header() {
       <div
         className={styles.avatar}
         onClick={() => {
-          navigate("/userPlaylist");
+          setSideBarUserMenu((state) => !state);
         }}
       >
-        <span className={styles.hello}>Hello</span>
-        <span className={styles.avatarFullName}></span>
+        {photoData ? (
+          <img
+            src={`data:image/jpeg;base64,${photoData}`}
+            alt="Profile Image"
+          />
+        ) : (
+          "Hello"
+        )}
       </div>
     </div>
   );

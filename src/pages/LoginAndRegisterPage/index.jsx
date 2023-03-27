@@ -1,16 +1,12 @@
 import "./style.css";
 import React, { useState } from "react";
 import { useRef } from "react";
-import apiCalls, { setToken } from "../../functions/apiRequest";
+import { apiCalls, setToken } from "../../functions/apiRequest";
 import { useNavigate } from "react-router-dom";
 import language from "../../functions/language";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
 import userContext from "../../context/UserContext";
-
-// creator: david hakak
-// color: _______________
-// icon: ________________
 
 function LoginAndRegisterPage({ setUser }) {
   const [panelActive, setPanelActive] = useState(false);
@@ -21,6 +17,7 @@ function LoginAndRegisterPage({ setUser }) {
   const userPhoneNumberInput = useRef(null);
   const userEmailLoginInput = useRef(null);
   const userPasswordLoginInput = useRef(null);
+
   const nav = useNavigate();
 
   function handleSubmitLogin(e) {
@@ -34,10 +31,9 @@ function LoginAndRegisterPage({ setUser }) {
     apiCalls("post", "/user/login", data).then((res) => {
       if (res.status === 200) {
         setToken(res.data.token);
-        setUser(true);
+        setUser({ _id: res.data._id, image: res.data.image });
         localStorage.token = res.data.token;
         nav("/SearchSongs");
-        userContext = {};
       }
     });
   }

@@ -3,7 +3,7 @@
   width: var(--main-width);
   min-height: 100vh;
   padding: 170px 50px 50px 50px;
-  
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

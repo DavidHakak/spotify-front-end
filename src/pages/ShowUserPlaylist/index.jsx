@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import MainContext from "../../context/MainContext";
-import apiCalls from "../../functions/apiRequest";
+import { apiCalls } from "../../functions/apiRequest";
 import styles from "./style.module.css";
 
 import { TiDeleteOutline } from "react-icons/ti";

@@ -2,7 +2,7 @@ import styles from "./style.module.css";
 import { useContext } from "react";
 import { FiMoreVertical } from "react-icons/fi";
 import MainContext from "../../context/MainContext";
-import apiCalls from "../../functions/apiRequest";
+import { apiCalls } from "../../functions/apiRequest";
 
 function MenuAboutTheSong({
   showMenuToAddSong,

@@ -7,7 +7,7 @@
 }
 
 .playlistPlayerContainer {
-  width: 82vw;
+  width: var(--main-width);
 }
 
 .tableContainer {
@@ -22,7 +22,6 @@
   border-collapse: collapse;
   text-align: left;
 }
-
 
 .table th {
   background: #dcdcdc;
@@ -40,7 +39,8 @@
   background: var(--bg-secondary-color);
 }
 
-th,td {
+th,
+td {
   padding: 19px;
 }
 
