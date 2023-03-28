@@ -1,56 +1,35 @@
-.table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table th {
-  background: #ffffff;
-  color: black;
-  font-size: medium;
-  font-weight: 900;
-  position: sticky;
-  top: 100px;
-}
-
-.table,
-.tbody,
-.thead .table.tbody > tr,
-.table.thead > tr {
-  text-align: left;
-  color: var(--text-secondary-color);
-}
-
-th,
-td {
-  padding: 12px;
-}
-
-.table > tr:hover {
-  background: var(--bg-secondary-color);
-}
-
-.songNumAndIng {
+.formLoginContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/3721941/pexels-photo-3721941.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
   display: flex;
+}
+
+.formLogin {
+  height: 48vh;
+  width: 20vw;
+  background: white;
+  font-family: "Montserrat", sans-serif;
+  margin: 20vh 0vw 0vw 12vw;
+  padding: 20px 30px 20px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
-.songImg {
-  height: 45px;
-  width: 45px;
-}
-
-.songName {
+.paragraphTitle {
+  margin-bottom: 15px;
+  font-size: 28px;
   font-weight: bold;
 }
 
-.artistName,
-.songTime {
-  color: rgb(130, 130, 130);
-}
-
-.icon {
-  font-size: 20px;
-  cursor: pointer;
+.paragraph {
+  font-size: 16px;
+  margin-bottom: 35px;
 }

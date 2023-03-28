@@ -13,12 +13,12 @@ function App() {
     const startApp = async () => {
       await setToken(localStorage.token);
       apiCalls("get", "user/").then((res) => {
-        // if (res.status === 200) {
-        //   setUser(res.data);
-        //   nav("/SearchSongs");
-        // } else {
-        //   nav("/login");
-        // }
+        if (res.status === 200) {
+          setUser(res.data);
+          nav("/SearchSongs");
+        } else {
+          nav("/login");
+        }
       });
     };
     !user && localStorage.token && startApp();

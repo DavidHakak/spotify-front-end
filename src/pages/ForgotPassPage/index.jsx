@@ -1,40 +1,60 @@
-//import React from "react";
-// import styles from "./style.module.css";
-// import { useRef, useState } from "react";
+import React from "react";
+import styles from "./style.module.css";
+import { useRef, useState } from "react";
+import InputLogin from "../../components/InputLogin";
+import { apiCalls } from "../../functions/apiRequest";
+import { TiArrowRightThick } from "react-icons/ti";
+import ButtonLogin from "../../components/ButtonLogin";
 
-// import InputLogin from "../../components/InputLogin";
-// import apiCalls from "../../functions/apiRequest";
-// import language from "../../functions/language";
+export default function ForgotPassPage() {
+  const [send, setSend] = useState(false);
+  const userEmailInput = useRef();
+  const [disabled, setDisabled] = useState(true);
 
-// export default function ForgotPassPage() {
-//   const userEmailInput = useRef();
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     apiCalls(
-//       "get",
-//       `http://localhost:4000/api/user/forgot/?email=${userEmailInput.current.value}`
-//     );
-//   }
+  const handleChange = () => {
+    if (
+      userEmailInput.current.value &&
+      userEmailInput.current.value.length > 0
+    ) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  };
 
-//   // return (
-//   //   <div className={styles.formLoginContainer}>
-//   //     <form className={styles.formLogin} onSubmit={handleSubmit}>
-//   //       <p className={styles.paragraphTitle}>
-//   //         {language.TITLE_FORGOT_PASSWORD}
-//   //       </p>
-//   //       <p className={styles.paragraph}>{language.MSG_GIVE_EMAIL_REGISTER}</p>
-//   //       <Input
-//   //         type="text"
-//   //         name="input"
-//   //         placeholder="email"
-//   //         required={true}
-//   //         inputRef={userEmailInput}
-//   //       />
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSend(true);
+    apiCalls("get", `/user/forgot/?email=${userEmailInput.current.value}`);
+  }
 
-//   //       <Button type={"submit"} width={"328px"}>
-//   //         {language.SEND}
-//   //       </Button>
-//   //     </form>
-//   //   </div>
-//   // );
-// }
+  return (
+    <div className={styles.formLoginContainer}>
+      {!send ? (
+        <form className={styles.formLogin} onSubmit={handleSubmit}>
+          <p className={styles.paragraphTitle}>Forgot Password?</p>
+          <p className={styles.paragraph}>
+            Just tell us the email address you would like to register with us
+          </p>
+          <InputLogin
+            type="email"
+            name="input"
+            placeholder="email"
+            required={true}
+            inputRef={userEmailInput}
+            onChange={handleChange}
+          />
+          <ButtonLogin width={"328px"} type="submit" disabled={disabled}>
+            Send
+          </ButtonLogin>
+        </form>
+      ) : (
+        <div className={styles.emailSendContainer}>
+          <p className={styles.msgAfterSend}>
+            A password recovery link has been sent to your email
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}

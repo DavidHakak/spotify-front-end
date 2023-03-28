@@ -37,6 +37,14 @@ a {
   margin: 15px 0;
 }
 
+.forgot {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
 .buttonLogin {
   width: 150px;
   margin-top: 5%;

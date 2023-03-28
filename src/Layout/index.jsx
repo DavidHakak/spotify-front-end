@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Popup from "../components/Popup";
 import MainContainerSearchSongs from "../components/MainContainerSearchSongs";
-import UserPlaylistPage from "../pages/UserPlaylistPage";
 import MainContext from "../context/MainContext";
 import React, { useContext, useEffect } from "react";
 import ShowUserPlaylist from "../pages/ShowUserPlaylist";
@@ -37,7 +36,6 @@ function Layout() {
       <Routes>
         <Route path="/" element={<MainContainerSearchSongs />} />
         <Route path="/SearchSongs" element={<MainContainerSearchSongs />} />
-        <Route path="/userPlaylist" element={<UserPlaylistPage />} />
         <Route
           path="/showUserPlaylist/:playlistId"
           element={<ShowUserPlaylist />}
