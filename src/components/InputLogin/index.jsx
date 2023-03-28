@@ -5,11 +5,11 @@ function InputLogin({
   type,
   placeholder,
   pattern,
-  onInvalid,
   required,
   inputRef,
   style,
   ref,
+  onChange,
   ...otherProps
 }) {
   return (
@@ -22,6 +22,7 @@ function InputLogin({
       required={required}
       ref={ref || inputRef}
       style={style}
+      onChange={onChange}
       {...otherProps}
     />
   );

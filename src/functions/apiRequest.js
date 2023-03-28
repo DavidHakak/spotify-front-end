@@ -1,9 +1,12 @@
 import axios from "axios";
-// if (window.location.href.includes("localhost")) {
-//axios.defaults.baseURL = "http://localhost:9000/api/";
-// } else {
-// }
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
+const createBaseUrl = () => {
+  if (window.location.href.includes("localhost")) {
+    axios.defaults.baseURL = "http://localhost:9000/api/";
+  } else {
+    axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+  }
+};
 
 export const setToken = async (token) => {
   axios.defaults.headers.common.Authorization = token
@@ -11,9 +14,11 @@ export const setToken = async (token) => {
     : null;
 };
 
-const apiCalls = async (method, url, data) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${localStorage.token}`;
+export const apiCalls = async (method, url, data) => {
+  createBaseUrl();
+
   console.log(" +++  \n api call - send ", method, url, data);
+
   try {
     console.log(axios.defaults);
     const res = await axios({
@@ -21,13 +26,27 @@ const apiCalls = async (method, url, data) => {
       url: url,
       data: data,
     });
-
     console.log(" +++  \n api call - res", res);
     return res;
   } catch (error) {
     console.log(" +++  \n api call - error", error);
+
     throw error;
   }
 };
 
-export default apiCalls;
+export const updateProfileImage = async (path, fromData, headers) => {
+  createBaseUrl();
+
+  try {
+    const res = await axios.post(path, fromData, headers);
+
+    console.log(" +++  \n api call - res", res);
+
+    return res;
+  } catch (error) {
+    console.log(" +++  \n api call - error", error);
+
+    throw error;
+  }
+};

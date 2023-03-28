@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import MainContext from "./MainContext";
 import UserContext from "./UserContext";
@@ -11,9 +12,11 @@ export const ContextProvider = ({ user, setUser, children }) => {
   const [userDetails, setUserDetails] = useState({});
   const [userFullName, setUserFullName] = useState("");
   const [newPlaylist, setNewPlaylist] = useState(true);
+  const [sideBarUserMenu, setSideBarUserMenu] = useState(false);
+  const [photoData, setPhotoData] = useState(null);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, photoData, setPhotoData }}>
       <MainContext.Provider
         value={{
           popup,
@@ -32,6 +35,8 @@ export const ContextProvider = ({ user, setUser, children }) => {
           setUserFullName,
           newPlaylist,
           setNewPlaylist,
+          sideBarUserMenu,
+          setSideBarUserMenu,
         }}
       >
         {children}

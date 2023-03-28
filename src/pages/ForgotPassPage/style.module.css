@@ -1,50 +1,89 @@
 .formLoginContainer {
-    width: 100vw;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/3721941/pexels-photo-3721941.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgb(0, 0, 0);
+  display: flex;
+}
 
 .formLogin {
-    margin: 30vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .header{
-      margin-top: 5px;
-      border-top: 0.5px solid rgba(128, 128, 128, 0.152) ;
-      border-bottom: 0.5px solid rgba(128, 128, 128, 0.214);
-  }
-  
-  .logo{
-      width: 383px;
-      padding: 8px;
-      font-size: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-  }
-  
-  .formOptions {
-    width: 328px;
-    font-size: 14px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .paragraphTitle{
-      margin-bottom: 15px;
-      font-size: 28px;
-      font-weight: bold;
-  }
-  .paragraph{
-      font-size: 14px;
-      margin-bottom: 35px;
-  }
-  
+  height: 45vh;
+  width: 20vw;
+  background-color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
+  margin: 20vh 0vw 0vw 12vw;
+  padding: 20px 30px 20px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+}
+
+.formLogin > .header {
+  margin-top: 5px;
+  border-top: 0.5px solid rgba(128, 128, 128, 0.152);
+  border-bottom: 0.5px solid rgba(128, 128, 128, 0.214);
+}
+
+.formOptions {
+  width: 328px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.paragraphTitle {
+  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.paragraph {
+  font-size: 15px;
+  margin-bottom: 35px;
+  display: flex;
+  text-align: center;
+}
+
+.inputContainer {
+  height: 2.5rem;
+  width: 328px;
+  margin-bottom: 50px;
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputContainer > input {
+  width: 93%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+}
+
+.emailSendContainer {
+  height: 20vh;
+  width: 26vw;
+  background-color: rgb(255, 255, 255);
+  font-family: "Montserrat", sans-serif;
+  margin: 28vh 0vw 0vw 10vw;
+  padding: 20px 30px 20px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}

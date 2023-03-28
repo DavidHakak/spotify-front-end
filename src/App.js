@@ -1,9 +1,10 @@
+import React from "react";
 import "./global.css";
 import Layout from "./Layout";
 import { ContextProvider } from "./context/manageContext";
 import { useEffect, useState } from "react";
 import LayoutLogin from "./LayoutLogin";
-import apiCalls, { setToken } from "./functions/apiRequest";
+import { apiCalls, setToken } from "./functions/apiRequest";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -16,10 +17,11 @@ function App() {
         if (res.status === 200) {
           setUser(res.data);
           nav("/SearchSongs");
+        } else {
+          nav("/login");
         }
       });
     };
-
     !user && localStorage.token && startApp();
   }, []);
 

@@ -2,12 +2,27 @@ import React from "react";
 import styles from "./style.module.css";
 import InputLogin from "../InputLogin";
 import ButtonLogin from "../ButtonLogin";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Login({
   handleSubmitLogin,
   userPasswordLoginInput,
   userEmailLoginInput,
 }) {
+  Login.propTypes = {
+    handleSubmitLogin: PropTypes.func.isRequired,
+    userPasswordLoginInput: PropTypes.func.isRequired,
+    userEmailLoginInput: PropTypes.func.isRequired,
+  };
+
+  const nav = useNavigate();
+
+  const handleForgot = (e) => {
+    e.stopPropagation();
+    nav("/forgot");
+  };
+
   return (
     <form
       className={styles.formLogin}
@@ -26,8 +41,8 @@ function Login({
         <a href="#" className="social">
           <i className="fab fa-linkedin-in"></i>
         </a>
-      </div> */}
-      <span className={styles.titleLoginSpan}>or use your account</span>
+      </div>
+      <span className={styles.titleLoginSpan}>or use your account</span> */}
       <InputLogin
         type={"email"}
         required={"required"}
@@ -41,7 +56,10 @@ function Login({
         inputRef={userPasswordLoginInput}
         placeholder={"Password"}
       />
-      <a href="/">Forgot your password?</a>
+      <div className={styles.forgot} onClick={(e) => handleForgot(e)}>
+        Forgot your password?
+      </div>
+
       <ButtonLogin>Sign In</ButtonLogin>
     </form>
   );
