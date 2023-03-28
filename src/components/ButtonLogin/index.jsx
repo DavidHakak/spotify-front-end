@@ -1,15 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 
-function ButtonLogin({
-  children,
-  type,
-  width,
-  func,
-  style,
-  disabled,
-  ...otherProps
-}) {
+function ButtonLogin({ children, type, width, func, disabled, ...otherProps }) {
   return (
     <button
       className={styles.buttonLogin}

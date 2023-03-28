@@ -3,12 +3,19 @@ import styles from "./style.module.css";
 import InputLogin from "../InputLogin";
 import ButtonLogin from "../ButtonLogin";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Login({
   handleSubmitLogin,
   userPasswordLoginInput,
   userEmailLoginInput,
 }) {
+  Login.propTypes = {
+    handleSubmitLogin: PropTypes.func.isRequired,
+    userPasswordLoginInput: PropTypes.func.isRequired,
+    userEmailLoginInput: PropTypes.func.isRequired,
+  };
+
   const nav = useNavigate();
 
   const handleForgot = (e) => {

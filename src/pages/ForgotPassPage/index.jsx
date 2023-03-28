@@ -3,7 +3,6 @@ import styles from "./style.module.css";
 import { useRef, useState } from "react";
 import InputLogin from "../../components/InputLogin";
 import { apiCalls } from "../../functions/apiRequest";
-import { TiArrowRightThick } from "react-icons/ti";
 import ButtonLogin from "../../components/ButtonLogin";
 
 export default function ForgotPassPage() {

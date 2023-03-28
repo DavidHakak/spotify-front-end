@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./style.module.css";
 import { useState } from "react";
 import SongDetails from "../SongDetails";

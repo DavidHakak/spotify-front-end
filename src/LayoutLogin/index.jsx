@@ -3,8 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import LoginAndRegisterPage from "../pages/LoginAndRegisterPage";
 import ForgotPassPage from "../pages/ForgotPassPage";
 import RenewPassPage from "../pages/RenewPassPage";
+import PropTypes from "prop-types";
 
 function LayoutLogin({ setUser }) {
+  LayoutLogin.propTypes = {
+    setUser: PropTypes.string.isRequired,
+  };
   return (
     <>
       <Routes>

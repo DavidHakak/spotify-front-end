@@ -5,7 +5,6 @@ function InputLogin({
   type,
   placeholder,
   pattern,
-  onInvalid,
   required,
   inputRef,
   style,

@@ -1,3 +1,4 @@
+import React from "react";
 import "./global.css";
 import Layout from "./Layout";
 import { ContextProvider } from "./context/manageContext";

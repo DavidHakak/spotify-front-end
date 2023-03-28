@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./style.module.css";
 import { BiImageAdd } from "react-icons/bi";
 import { BiUserX } from "react-icons/bi";
@@ -8,7 +9,7 @@ import { useContext, useRef } from "react";
 import UserContext from "../../context/UserContext";
 
 function SideBarUserControlMenu() {
-  const { user, setPhotoData, setImageId } = useContext(UserContext);
+  const { user, setPhotoData } = useContext(UserContext);
 
   let photoInputRef = useRef();
 

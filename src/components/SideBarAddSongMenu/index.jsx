@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./style.module.css";
 import { useContext, useEffect } from "react";
 import MainContext from "../../context/MainContext";

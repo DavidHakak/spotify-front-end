@@ -1,5 +1,5 @@
 import styles from "./style.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Search from "../Search";
 import { useContext } from "react";
 import MainContext from "../../context/MainContext";

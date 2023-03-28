@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import { apiCalls, setToken } from "../../functions/apiRequest";
 import { useNavigate } from "react-router-dom";
-import language from "../../functions/language";
 import Register from "../../components/Register";
 import Login from "../../components/Login";
-import userContext from "../../context/UserContext";
 
 function LoginAndRegisterPage({ setUser }) {
   const [panelActive, setPanelActive] = useState(false);

@@ -80,9 +80,8 @@ function ShowUserPlaylist() {
           </thead>
           {songsList.map((song, index) => {
             return (
-              <tbody className={styles.tbody}>
+              <tbody className={styles.tbody} key={song.id}>
                 <tr
-                  key={song.id}
                   className={styles.songContainer}
                   id={song._id}
                   onMouseOver={() => handleMouseOver(song._id)}
