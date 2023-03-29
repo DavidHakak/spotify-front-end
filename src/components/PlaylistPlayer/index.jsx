@@ -42,7 +42,7 @@ function PlaylistPlayer({
   };
 
   const handleReturnSong = () => {
-    if (songIndex > 0 && songIndex < songsList.length - 1) {
+    if (songIndex > 0 && songIndex <= songsList.length - 1) {
       setSongIndex((songIndex) => songIndex - 1);
     }
   };
