@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
 import YouTube, { YouTubeProps } from "react-youtube";
 import { BiPlay } from "react-icons/bi";
@@ -20,6 +20,7 @@ function PlaylistPlayer({
   const [replay, setReplay] = useState(false);
   const [songToPlay, setSongToPlay] = useState(null);
   const [play, setPlay] = useState(true);
+  const playerRef = useRef(null);
 
   const handleReplay = () => {
     setReplay(!replay);
@@ -27,6 +28,12 @@ function PlaylistPlayer({
 
   const handlePlay = () => {
     setPlay(!play);
+
+    if (!play) {
+      playerRef.current.internalPlayer.playVideo();
+    } else {
+      playerRef.current.internalPlayer.pauseVideo();
+    }
   };
 
   const handleShowMovie = () => {
@@ -73,6 +80,7 @@ function PlaylistPlayer({
           onEnd={handleNextSong}
           iframeClassName={styles.iframe}
           className={styles.iframe}
+          ref={playerRef}
         />
       </div>
 
@@ -96,9 +104,9 @@ function PlaylistPlayer({
           </div>
           <div className={styles.icon}>
             {play ? (
-              <BiPlay onClick={handlePlay} />
-            ) : (
               <IoIosPause onClick={handlePlay} />
+            ) : (
+              <BiPlay onClick={handlePlay} />
             )}
           </div>
           <div className={styles.icon}>
